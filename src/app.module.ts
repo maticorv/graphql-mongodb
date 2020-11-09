@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { LessonsModule } from './lessons/lessons.module';
 
 @Module({
   imports: [
@@ -9,6 +10,7 @@ import { AppService } from './app.service';
       autoSchemaFile: true,
 
     }),
+    LessonsModule,
 
   ],
   controllers: [AppController],

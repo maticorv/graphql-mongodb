@@ -1,0 +1,24 @@
+type Lesson {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateLessonInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateLessonInput {
+  id: Int!
+}
+
+type Query {
+  lessons: [Lesson]!
+  lesson(id: Int!): Lesson
+}
+
+type Mutation {
+  createLesson(createLessonInput: CreateLessonInput!): Lesson!
+  updateLesson(updateLessonInput: UpdateLessonInput!): Lesson!
+  removeLesson(id: Int!): Lesson
+}
