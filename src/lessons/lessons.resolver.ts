@@ -2,32 +2,33 @@ import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
 import { LessonsService } from './lessons.service';
 import { CreateLessonInput } from './dto/create-lesson.input';
 import { UpdateLessonInput } from './dto/update-lesson.input';
+import { Lesson } from './entities/lesson.entity';
 
 @Resolver('Lesson')
 export class LessonsResolver {
   constructor(private readonly lessonsService: LessonsService) {}
 
-  @Mutation('createLesson')
+  @Mutation(() => String)
   create(@Args('createLessonInput') createLessonInput: CreateLessonInput) {
     return this.lessonsService.create(createLessonInput);
   }
 
-  @Query('lessons')
+  @Query(() => String)
   findAll() {
     return this.lessonsService.findAll();
   }
 
-  @Query('lesson')
+  @Query(() => String)
   findOne(@Args('id') id: number) {
     return this.lessonsService.findOne(id);
   }
 
-  @Mutation('updateLesson')
+  @Mutation(() => String)
   update(@Args('updateLessonInput') updateLessonInput: UpdateLessonInput) {
     return this.lessonsService.update(updateLessonInput.id, updateLessonInput);
   }
 
-  @Mutation('removeLesson')
+  @Mutation(() => String)
   remove(@Args('id') id: number) {
     return this.lessonsService.remove(id);
   }
