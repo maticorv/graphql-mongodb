@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
+import { TypeOrmModule } from '@nestjs/typeorm/dist/typeorm.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { LessonsModule } from './lessons/lessons.module';
@@ -11,6 +12,14 @@ import { LessonsModule } from './lessons/lessons.module';
 
     }),
     LessonsModule,
+    TypeOrmModule.forRoot({
+      type: 'mongodb',
+      url: 'mongodb://localhost:27017/nest',
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      synchronize: true,
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
+    }),
 
   ],
   controllers: [AppController],
