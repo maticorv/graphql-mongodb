@@ -4,5 +4,11 @@ import { Field, InputType, ObjectType } from "@nestjs/graphql";
 @ObjectType()
 export class CreateLessonInput {
     @Field()
-    id: number;
+    name: string;
+    
+    @Field()
+    startDate:string;
+    
+    @Field()
+    endDAte:string;
 }

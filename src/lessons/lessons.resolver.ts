@@ -8,8 +8,8 @@ import { Lesson } from './entities/lesson.entity';
 export class LessonsResolver {
   constructor(private readonly lessonsService: LessonsService) {}
 
-  @Mutation(() => String)
-  create(@Args('createLessonInput') createLessonInput: CreateLessonInput) {
+  @Mutation(() => Lesson)
+  create(@Args('createLessonInput') createLessonInput: CreateLessonInput):Promise<Lesson> {
     return this.lessonsService.create(createLessonInput);
   }
 
