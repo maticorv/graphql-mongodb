@@ -5,7 +5,6 @@ import { Entity, ObjectIdColumn, PrimaryColumn } from "typeorm";
 @ObjectType() 
 export class Lesson {
     @ObjectIdColumn()
-    @PrimaryColumn()
     _id: string;
 
     @Field()

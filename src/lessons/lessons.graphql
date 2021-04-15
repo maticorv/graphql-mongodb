@@ -1,11 +1,15 @@
 type Lesson {
   # Example field (placeholder)
-  exampleField: Int
+  name: String!
+  startDate: String!
+  endDAte: String!
 }
 
 input CreateLessonInput {
   # Example field (placeholder)
-  exampleField: Int
+  name: String!
+  startDate: String!
+  endDAte: String!
 }
 
 input UpdateLessonInput {

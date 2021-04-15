@@ -12,7 +12,7 @@ export class LessonsService {
   ){}
 
   async create(createLessonInput: CreateLessonInput): Promise<Lesson> {
-    return await this.lessonRepository.create(createLessonInput)
+    return await this.lessonRepository.save(createLessonInput);
   }
 
   findAll() {
