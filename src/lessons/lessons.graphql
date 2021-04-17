@@ -1,5 +1,6 @@
 type Lesson {
   # Example field (placeholder)
+  _id: ID!
   name: String!
   startDate: String!
   endDAte: String!
