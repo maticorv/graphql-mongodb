@@ -64,6 +64,20 @@ $ npm run test:cov
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
+## Create Lesson
+```bash
+
+mutation{
+  create(createLessonInput: {  
+    name: "Matias"
+    startDate: "asd"
+    endDAte: "asd"
+  }){
+    _id
+    startDate
+  }
+}
+```
 ## Stay in touch
 
 - Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
