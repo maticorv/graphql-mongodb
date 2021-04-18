@@ -13,11 +13,7 @@ export class LessonsService {
   ) {}
 
   async create(createLessonInput: CreateLessonInput) {
-    const lesson = await this.lessonRepository.create({
-      id: uuid(),
-      name: createLessonInput.name,
-    });
-    return await this.lessonRepository.save(lesson);
+    return await this.lessonRepository.save(createLessonInput);
   }
 
   findAll() {
