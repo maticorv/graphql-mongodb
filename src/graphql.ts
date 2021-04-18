@@ -39,5 +39,5 @@ export abstract class IMutation {
 
     abstract updateLesson(updateLessonInput: UpdateLessonInput): Lesson | Promise<Lesson>;
 
-    abstract removeLesson(id: string): Lesson | Promise<Lesson>;
+    abstract removeLesson(id: string): boolean | Promise<boolean>;
 }

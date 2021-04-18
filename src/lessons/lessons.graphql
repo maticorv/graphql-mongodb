@@ -30,5 +30,5 @@ type Query {
 type Mutation {
   createLesson(createLessonInput: CreateLessonInput!): Lesson!
   updateLesson(updateLessonInput: UpdateLessonInput!): Lesson!
-  removeLesson(id: String!): Lesson
+  removeLesson(id: String!): Boolean
 }

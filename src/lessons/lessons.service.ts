@@ -16,8 +16,8 @@ export class LessonsService {
     return await this.lessonRepository.save(createLessonInput);
   }
 
-  findAll() {
-    return this.lessonRepository.find();
+  async findAll() {
+    return await this.lessonRepository.find();
   }
 
   async findOne(id: string) {
@@ -28,7 +28,12 @@ export class LessonsService {
     return `This action updates a #${id} lesson`;
   }
 
-  remove(id: string) {
-    return `This action removes a #${id} lesson`;
+  async remove(id: string) {
+    if (await this.lessonRepository.findOne(id)) {
+      this.lessonRepository.delete(id);
+      return true
+    } else {
+      return false
+    }
   }
 }
