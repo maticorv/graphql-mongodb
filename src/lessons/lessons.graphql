@@ -1,29 +1,34 @@
 type Lesson {
   # Example field (placeholder)
   _id: ID!
-  name: String!
-  startDate: String!
-  endDAte: String!
+  id: String
+  name: String
+  startDate: String
+  endDate: String
+  
 }
 
 input CreateLessonInput {
   # Example field (placeholder)
-  name: String!
-  startDate: String!
-  endDAte: String!
+  name: String
+  startDate: String
+  endDate: String
 }
 
 input UpdateLessonInput {
-  id: Int!
+  id: ID!
+  name: String
+  startDate: String
+  endDate: String
 }
 
 type Query {
   lessons: [Lesson]!
-  lesson(id: Int!): Lesson
+  lesson(id: String!): Lesson
 }
 
 type Mutation {
   createLesson(createLessonInput: CreateLessonInput!): Lesson!
   updateLesson(updateLessonInput: UpdateLessonInput!): Lesson!
-  removeLesson(id: Int!): Lesson
+  removeLesson(id: String!): Lesson
 }

@@ -1,14 +1,12 @@
-import { Field, InputType, ObjectType } from "@nestjs/graphql";
+import { IsInt, IsString } from 'class-validator';
 
-@InputType()
-@ObjectType()
 export class CreateLessonInput {
-    @Field()
+    @IsString()
     name: string;
-    
-    @Field()
-    startDate:string;
-    
-    @Field()
-    endDAte:string;
+
+    @IsString()
+    startDate: string;
+
+    @IsString()
+    endDate: string;
 }

@@ -1,9 +1,17 @@
-import { Field, InputType } from '@nestjs/graphql';
-import { PartialType } from '@nestjs/mapped-types';
 import { CreateLessonInput } from './create-lesson.input';
+import { PartialType } from '@nestjs/mapped-types';
+import { IsString } from 'class-validator';
 
-@InputType()
 export class UpdateLessonInput extends PartialType(CreateLessonInput) {
-  @Field()
-  id: number;
+  @IsString()
+  id: string;
+  
+  @IsString()
+  name: string;
+
+  @IsString()
+  startDate: string;
+
+  @IsString()
+  endDate: string;
 }

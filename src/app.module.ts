@@ -1,26 +1,32 @@
 import { Module } from '@nestjs/common';
-import { GraphQLModule } from '@nestjs/graphql';
-import { TypeOrmModule } from '@nestjs/typeorm/dist/typeorm.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { GraphQLModule } from '@nestjs/graphql';
+import { join } from 'path';
 import { LessonsModule } from './lessons/lessons.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [
     GraphQLModule.forRoot({
-      autoSchemaFile: true,
-
+      typePaths: ['./**/*.graphql'],
+      definitions: {
+        path: join(process.cwd(), 'src/graphql.ts'),
+        outputAs: 'class',
+      },
     }),
-    LessonsModule,
     TypeOrmModule.forRoot({
       type: 'mongodb',
-      url: 'mongodb://localhost:27017/nest',
+      host: 'localhost',
+      port: 27017,
+      username: '',
+      password: '',
+      database: 'nest',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
       useUnifiedTopology: true,
-      useNewUrlParser: true,
     }),
-
+    LessonsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
